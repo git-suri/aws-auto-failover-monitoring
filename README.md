@@ -2,11 +2,11 @@
 
 A website monitoring setup on AWS that detects when a primary web server goes down, sends an email alert, and is designed to redirect traffic to a standby server using Route 53 failover routing.
 
-[Full project write-up (PDF)](AWS-Auto-Failover-Project.pdf)
+[Full project write-up (PDF)](AWS-Auto-Failover-Project_pdf.pdf)
 
 ## Architecture
 
-![Architecture](images/complete_project_architecture.png)
+![Architecture](images/complete_project_architecture_png.png)
 
 **Flow:** Route 53 health check monitors the primary EC2 → CloudWatch alarm fires on failure → SNS emails the on-call engineer → Route 53 failover routing sends traffic to the secondary EC2.
 
@@ -42,11 +42,11 @@ I stopped the primary instance to simulate a failure:
 | SNS notification | Alert email received |
 | Secondary server | Serving "SECONDARY server" on its own Elastic IP |
 
-![Primary server stopped](images/primary-server-stopped.png)
-![Unhealthy health check](images/health-check-unhealthy.png)
-![Alarm in alarm state](images/cloudwatch-alarm.png)
-![SNS email](images/sns-email.png)
-![Secondary server](images/secondary-server.png)
+![Primary server stopped](images/primary-server-stopped_png.png)
+![Unhealthy health check](images/health-check-unhealthy_png.png)
+![Alarm in alarm state](images/cloudwatch-alarm_png.png)
+![SNS email](images/sns-email_png.png)
+![Secondary server](images/secondary-server_png.png)
 
 > **Note:** Detection and alerting were tested live. The DNS failover records (Route 53 failover routing policy) were designed and documented but not deployed, as that requires a registered domain.
 
